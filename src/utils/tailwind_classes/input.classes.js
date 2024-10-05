@@ -1,2 +1,2 @@
-export const inputPrimaryClasses = "rounded-full bg-transparent border-white border-2 px-3 py-2 text-white text-lg focus:shadow-sm placeholder-gray-light focus:shadow-white focus:outline-primary focus:outline-2 transition-all duration-300"
-export const inputSecondaryClasses = "rounded-full bg-transparent border-secondary border-2 px-3 py-2 text-secondary text-lg focus:shadow-md focus:outline-secondary focus:outline-2 transition-all duration-300"
+export const inputPrimaryClasses = "rounded-full bg-transparent border-white border-2 px-3 py-2 text-white focus:shadow-sm placeholder-gray-light focus:shadow-white focus:outline-primary focus:outline-2 transition-all duration-300"
+export const inputSecondaryClasses = "rounded-full bg-transparent border-secondary border-2 px-3 py-2 text-secondary text-lg font-normal focus:shadow-md focus:outline-secondary focus:outline-2 transition-all duration-300"

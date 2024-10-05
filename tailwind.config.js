@@ -13,7 +13,8 @@ export default {
       'secondary': 'var(--secondary)',
       'primary': 'var(--primary)',
       'primary-dark': 'var(--primary-dark)',
-      'logo-color': 'var(--logo-color)'
+      'logo-color': 'var(--logo-color)',
+      'danger': 'var(--danger-color)'
     },
   },
   plugins: [],

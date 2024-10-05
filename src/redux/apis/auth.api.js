@@ -1,12 +1,13 @@
 import axios from "axios";
 import axiosInstance from "./axiosInstance";
-
-export const registerAPI = body =>
-    axios.post(`${BASE_URL}/auth/register`, body).then(res => res.data);
-
+const apiBaseUrl = import.meta.env.VITE_EXPRESS_BASE_URL;
+export const registerAPI = body => {
+    console.log(apiBaseUrl);
+    return axios.post(`${apiBaseUrl}/api/auth/register`, body).then(res => res.data);
+}
 
 export const loginAPI = body =>
-    axios.post(`${BASE_URL}/auth/login`, body).then(res => res.data);
+    axios.post(`${apiBaseUrl}/api/auth/login`, body).then(res => res.data);
 
 export const meAPI = _ =>
-    axiosInstance.get(`${BASE_URL}/auth/me`).then(res => res.data);
+    axiosInstance.get(`${apiBaseUrl}/api/auth/me`).then(res => res.data);
