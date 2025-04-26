@@ -3,7 +3,6 @@ import {
     LOGIN_SUCCESS,
     LOGIN_FAILURE,
     LOGOUT,
-    LOGOUT_SUCCESS,
     ME_REQUEST,
     ME_SUCCESS,
     ME_FAILURE,
@@ -56,4 +55,8 @@ export const meSuccess = body => ({
 export const meFailure = body => ({
     type: ME_FAILURE,
     payload: body
+})
+
+export const logout = _ => ({
+    type: LOGOUT
 })

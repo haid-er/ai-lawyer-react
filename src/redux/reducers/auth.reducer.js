@@ -20,7 +20,7 @@ const initialState = {
     token: null,
 }
 
-export default authReducer = (state = initialState, action) => {
+const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case REGISTER_REQUEST:
             return {
@@ -54,7 +54,7 @@ export default authReducer = (state = initialState, action) => {
         case LOGIN_SUCCESS:
             return {
                 ...state,
-                user: action.payload,
+                user: action.payload.data.user,
                 error: null,
                 success: LOGIN_SUCCESS,
                 loading: false,
@@ -84,7 +84,7 @@ export default authReducer = (state = initialState, action) => {
         case ME_SUCCESS:
             return {
                 ...state,
-                user: action.payload,
+                user: action.payload.data.user,
                 meLoading: false,
                 error: null,
                 success: ME_SUCCESS,
@@ -97,7 +97,19 @@ export default authReducer = (state = initialState, action) => {
                 error: action.payload,
                 success: false,
             }
+        case LOGOUT:
+            return {
+                ...state,
+                user: null,
+                error: null,
+                success: null,
+                loading: false,
+                meLoading: true,
+                token: null,
+            }
         default:
             return state;
     }
 }
+
+export default authReducer;

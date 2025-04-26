@@ -2,21 +2,22 @@ import { Navigate } from 'react-router-dom';
 import Layout from './containers/layout/Layout';
 import Login from './components/Login';
 import Register from './components/Register';
-import Profile from "./containers/home/Profile"
+import Profile from "./containers/user/Profile"
 import Auth from "./containers/auth/Auth"
-import ProtectedRoutes from './containers/user/ProtectedRoutes';
 import PublicHome from './containers/publicHomeLayout/PublicHome'
 import FAQ from "./components/FAQ"
 import Contact from "./components/Contact"
 import Blog from "./components/Blog"
 import HomeLayout from "./containers/publicHomeLayout/HomeLayout"
-import UserHome from './containers/home/UserHome';
+import ProtectedRoutes from './containers/user/ProtectedRoutes';
+import UserHome from './containers/user/UserHome';
 const routes = [
     {
         path: '/',
         element: <Layout />,
         children: [
             { path: '', exact: true, element: <Navigate to="/auth" /> },
+            { path: '*', element: <Navigate to="/auth/login" /> },
             {
                 path: '/home',
                 exact: true,
@@ -30,16 +31,6 @@ const routes = [
                 ]
             },
             {
-                path: '/user',
-                exact: true,
-                element: <ProtectedRoutes />,
-                children: [
-                    { path: '/user/home', exact: true, element: <UserHome /> },
-                    { path: '/user/profile', exact: true, element: <Profile /> },
-                ]
-            },
-            { path: '*', element: <Navigate to="/auth/login" /> },
-            {
                 path: '/auth',
                 element: <Auth />,
                 children: [
@@ -47,7 +38,17 @@ const routes = [
                     { path: '/auth/login', exact: true, element: <Login /> },
                     { path: '/auth/register', exact: true, element: <Register /> },
                 ]
-            }
+            },
+            {
+                path: '/user',
+                exact: true,
+                element: <ProtectedRoutes />,
+                children: [
+                    { path: '', exact: true, element: <UserHome /> },
+                    { path: '/user/home', exact: true, element: <UserHome /> },
+                    { path: '/user/profile', exact: true, element: <Profile /> },
+                ]
+            },
         ],
     },
 

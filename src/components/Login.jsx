@@ -9,7 +9,7 @@ export default function Login() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const onSubmit = (values) => {
-        console.log(values);
+        console.log(values)
         dispatch(loginRequest(values));
     }
     return <>

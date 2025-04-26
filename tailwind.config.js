@@ -10,6 +10,7 @@ export default {
       'white': 'var(--white)',
       'gray-light': 'var(--gray-light)',
       'tertiary': 'var(--tertiary)',
+      'tertiary-light': 'var(--tertiary-light)',
       'secondary': 'var(--secondary)',
       'primary': 'var(--primary)',
       'primary-dark': 'var(--primary-dark)',

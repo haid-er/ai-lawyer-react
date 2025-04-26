@@ -8,6 +8,7 @@
   --transparent: transparent;
   --white: #ffffff;
   --gray-light: #eeeeee;
+  --tertiary-light: #c3c3c3;
   --tertiary: #686d76;
   --secondary: #373a40;
   --primary: #19d3da;
@@ -35,22 +36,22 @@ body {
   background-color: var(--gray-light);
 }
 
-body::-webkit-scrollbar {
+*::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
-body::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
   background: #f1f1f1;
   border-radius: 10px;
 }
 
-body::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 10px;
 }
 
-body::-webkit-scrollbar-thumb:hover {
+*::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
 

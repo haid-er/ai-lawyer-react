@@ -1,12 +1,19 @@
-import Logo from "./Logo";
-
-export default function HeroHome({ mainText, }) {
+import LawImage from "../assets/law.png"
+export default function HeroHome({ headingPrimary, headingSecondary, headingTertiary }) {
     return (
         <>
-            <div className="container mx-auto max-h-72 min-h-[60vh] rounded-[3rem] bg-primary flex items-center justify-center flex-col">
-                <div className="flex items-center border rounded-full px-1 border-gray-light"><span className="w-7 me-1"><Logo mode={"light"} /></span>Hello</div>
-                <h1 className="text-[4.5rem] font-bold">Hello</h1>
-                <p className="text-secondary italic">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, excepturi.</p>
+            <div className="container mx-auto max-h-72 min-h-[60vh] rounded-[3rem] bg-transparent flex items-center justify-center flex-col relative overflow-hidden shadow-sm">
+                <div className="absolute top-0 left-0 w-full h-full bg-primary -z-10 opacity-10"></div>
+                <div className="flex items-center justify-center border rounded-full p-1 text-logo-color border-logo-color">
+                    <span className="w-7 mx-auto justify-self-end">
+                        <img src={LawImage} width={20} alt="Image related to law" className="mx-auto" />
+                    </span>
+                    <div>
+                        {headingTertiary}
+                    </div>
+                </div>
+                <h1 className="text-[4.5rem] font-bold text-secondary">{headingPrimary}</h1>
+                <p className="text-secondary italic text-xl">{headingSecondary}</p>
             </div>
         </>
     )

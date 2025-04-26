@@ -2,7 +2,8 @@ import { call, put, takeLatest } from "redux-saga/effects"
 import {
     LOGIN_REQUEST,
     REGISTER_REQUEST,
-    ME_REQUEST
+    ME_REQUEST,
+    LOGOUT
 } from "../constant/auth.constants"
 
 import {
@@ -11,7 +12,14 @@ import {
     meAPI
 } from "../apis/auth.api"
 
-import { loginFailure, loginSuccess, meFailure, meSuccess, registerFailure, registerSuccess } from "../actions/auth.actions"
+import {
+    loginFailure,
+    loginSuccess,
+    meFailure,
+    meSuccess,
+    registerFailure,
+    registerSuccess
+} from "../actions/auth.actions"
 import { toast } from "react-toastify";
 
 function* handleRegister(action) {
@@ -29,6 +37,7 @@ function* handleLogin(action) {
     try {
         const res = yield call(loginAPI, action.payload);
         toast.success("Logged In Successfully")
+        localStorage.setItem(import.meta.env.VITE_JWT_TOKEN_NAME, res.token)
         yield put(loginSuccess(res));
     } catch (error) {
         console.log(error)
@@ -37,17 +46,22 @@ function* handleLogin(action) {
     }
 }
 
-function* handleMe(action) {
+function* handleMe() {
     try {
-        const res = yield call(meAPI, action.payload);
+        const res = yield call(meAPI);
         yield put(meSuccess(res));
     } catch (error) {
         yield put(meFailure(error?.response?.data?.message))
     }
 }
 
+function* handleLogut() {
+    localStorage.removeItem(import.meta.env.VITE_JWT_TOKEN_NAME);
+}
+
 export default function* authSaga() {
     yield takeLatest(REGISTER_REQUEST, handleRegister);
     yield takeLatest(LOGIN_REQUEST, handleLogin);
     yield takeLatest(ME_REQUEST, handleMe);
+    yield takeLatest(LOGOUT, handleLogut)
 }

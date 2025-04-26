@@ -1,7 +1,9 @@
+import HeroHome from "./HeroHome";
+
 export default function Blog() {
     return (
         <>
-            Blog goes here
+            <HeroHome headingPrimary={"Blog"} headingSecondary={"Here is the Blogs Page"} headingTertiary={"Read"} />
         </>
     )
 }

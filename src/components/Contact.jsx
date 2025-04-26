@@ -1,7 +1,9 @@
+import HeroHome from "./HeroHome";
+
 export default function Contact() {
     return (
         <>
-            Contacts goes here
+            <HeroHome headingPrimary={"Contacts"} headingSecondary={"Here is the Contacts Page"} headingTertiary={"Connect"} />
         </>
     )
 }
